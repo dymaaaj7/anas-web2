@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <title>Moja Parallax Stranica</title>
+  <meta name="description" content="Jednostavan primer parallax scroll stranice">
+  <meta name="author" content="Ja">
+
+  <!-- Reset stilovi da se ujednače margine, padding i slično -->
+  <link rel="stylesheet" href="css/reset.css">
+  <!-- Glavni stilovi za stranicu -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Učitavanje jQuery biblioteke (koristi se za JS efekat) -->
+  <script src="libs/jquery-1.6.min.js"></script>
+  <!-- Naš skript za parallax efekat -->
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Veb Dizajn 2</div>
+    <ul class="nav-links">
+        <li><a href="#">DZ1</a></li>
+        <li><a href="#">DZ2</a></li>
+        <li><a href="#">DZ3</a></li>
+        <li><a href="#">DZ4</a></li>
+        <li><a href="#">PROJEKAT</a></li>
+    </ul>
+</nav>
+  <!-- Sekcija #1 sa parallax pozadinom -->
+  <section id="home" data-speed="10" data-type="background">
+    <article>Dobrodošli u NTP</article>
+  </section>
+
+  <!-- Sekcija #2 sa parallax pozadinom -->
+  <section id="about" data-speed="4" data-type="background">
+    <article>Mesto koje edukuje, ohrabruje i podrzava inovacije i startap kompanije</article>
+  </section>
+
+  <!-- Sekcija #3 dodatna, sa drugačijom brzinom -->
+  <section id="portfolio" data-speed="6" data-type="background">
+    <article>Postani deo nas</article>
+  </section>
+
+  <!-- Sekcija #4 kao footer -->
+  <section id="contact" data-speed="8" data-type="background">
+    <article>Kontakt: info@ntp.rs</article>
+  </section>
+</body>
+</html>

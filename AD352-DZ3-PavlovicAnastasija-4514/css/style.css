@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400');
+body {
+  background: #F7F7F7; /* Svetlija pozadina za bolji kontrast */
+  font-family: 'Raleway', sans-serif;
+}
+
+*{
+  box-sizing: border-box;
+}
+/* Reset je već uključen, ovde samo podešavamo stil */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden; /* sprečava horizontalni skrol */
+
+  }
+  
+  /* Svim sekcijama dajemo zajednički izgled */
+  section {
+    height: 1000px;               /* svaka sekcija zauzima visinu ekrana */
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+    display: flex;                /* centriranje teksta */
+    align-items: center;
+    justify-content: center;
+    font-size: 8em;
+    /* Dodajemo senku teksta */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+  }
+  
+  /* Svaka sekcija ima svoju pozadinsku sliku */
+  #home {
+    background: url("../img/home.jpg") 50% 0 no-repeat fixed;
+    background-size: cover;
+  }
+  #about {
+    background: url("../img/kancelarija.jpg") 50% 0 no-repeat fixed;
+    background-size: cover;
+  }
+  #portfolio {
+    background: url("../img/about.jpg") 50% 0 no-repeat fixed;
+    background-size: cover;
+  }
+  #contact {
+    background: url("../img/parallax.jpg") 50% 0 no-repeat fixed;
+    background-size: cover;
+  }
+
+
+
+  /* Navbar Styling */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #37474F;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.2em;
+  color: #ECEFF1;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #CFD8DC;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #FFFFFF;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #CFD8DC;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+a {
+  color: #455A64;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+
+@media screen and (min-width:1000px) {
+  h1 {
+    font-size: 2.4em; /* Veći naslov na većim ekranima */
+  }
+  #container {
+    width: 60%; /* Blago povećanje širine za bolje raspoređivanje */
+  }
+}
