@@ -2,6 +2,7 @@
 <html lang="sr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projekat</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,11 +11,32 @@
 </head>
 <body>
 
-  <section class="hero">
-    <div class="heroClass">
-      <p class="subtitle fade-in">Anastasija Pavlović 4514</p>
-      <h1 class="title fade-in">Navike studenata<br>Metropolitan univerziteta</h1>
-      <p class="description fade-in">
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="./img/metropolitan-logo.png" alt="Metropolitan logo" loading="lazy">
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#pocetna" class="nav-link">Početna</a></li>
+        <li><a href="#statistika" class="nav-link">Statistika</a></li>
+        <li><a href="#nastava" class="nav-link">Nastava</a></li>
+        <li><a href="#zivot" class="nav-link">Studentski život</a></li>
+        <li><a href="#zahvalnica" class="nav-link">Zahvalnica</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="pocetna" class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle fade-in">Anastasija Pavlović 4514</p>
+      <h1 class="hero-title fade-in">Navike studenata<br>Metropolitan univerziteta</h1>
+      <p class="hero-description fade-in">
         Koliko sati dnevno studenti uče? 
         <br>
         Koje alate koriste i šta im predstavlja najveći izazov?  
@@ -24,16 +46,16 @@
     </div>
   </section>
 
-  <section class="prva">
-    <div class="sadrzajprva">
-      <div class="naslov1 title-animate">
+  <section id="statistika" class="stats-section">
+    <div class="stats-content">
+      <div class="stats-header title-animate">
         <h2>Opšte informacije</h2>
         <p>Raspodela studenata po polu i godinama studija na Metropolitanu u Nišu.</p>
       </div>
-      <div class="charts">
+      <div class="charts-container">
 
-        <div class="gender slide-in-left">
-          <div class="circle-chart">
+        <div class="gender-chart slide-in-left">
+          <div class="pie-chart">
             <svg viewBox="0 0 36 36" class="circular-chart">
 
               <path class="circle-bg"
@@ -53,7 +75,7 @@
                    a 15.9155 15.9155 0 0 1 0 31.831
                    a 15.9155 15.9155 0 0 1 0 -31.831"/>
             </svg>
-            <div class="legend">
+            <div class="chart-legend">
               <span class="legend-item">
                 <span class="color-box male"></span> Muški 45%
               </span>
@@ -65,14 +87,14 @@
           </div>
         </div>
   
-        <div class="years slide-in-left">
-          <div class="yearsNaslov">
+        <div class="years-chart slide-in-left">
+          <div class="chart-header">
             <h3>Godina studija</h3>
           </div>
 
-          <div class="years-content">
+          <div class="chart-content">
 
-            <div class="years-labels">
+            <div class="chart-labels">
               <div>1. godina</div>
               <div>2. godina</div>
               <div>3. godina</div>
@@ -81,7 +103,7 @@
             </div>
 
 
-            <div class="years-bars">
+            <div class="chart-bars">
               <div class="grid-lines">
                 <div class="line"><span>0</span></div>
                 <div class="line"><span>5</span></div>
@@ -90,23 +112,23 @@
                 <div class="line"><span>20</span></div>
               </div>
 
-              <div class="bar-container">
+              <div class="bar-wrapper">
                 <div class="bar" style="width:40%">8</div>
               </div>
 
-              <div class="bar-container"> 
+              <div class="bar-wrapper"> 
                 <div class="bar" style="width:60%">12</div>
               </div>
 
-              <div class="bar-container">
+              <div class="bar-wrapper">
                 <div class="bar" style="width:50%">10</div>
               </div>
 
-              <div class="bar-container">
+              <div class="bar-wrapper">
                 <div class="bar" style="width:80%">16</div>
               </div>
 
-              <div class="bar-container">
+              <div class="bar-wrapper">
                 <div class="bar" style="width:90%">18</div>
               </div>
             </div>
@@ -114,94 +136,61 @@
         </div>
 
       </div>
-      <div class="komentarPrva title-animate">
+      <div class="stats-comment title-animate">
         <p>Ukupan broj studenata koji su učestvovali u anketiranju je 64.</p>
       </div>
     </div>
   </section>
   
-  <section class="druga">
-    <div class="naslov2">
-      <h2 class="naslov-poglavlja-2 words-fly-in">
-        <span class="tanji">Stavovi o</span> 
-        <span class="debele-nastava">Nastavi</span>
+  <section id="nastava" class="teaching-section">
+    <div class="section-header">
+      <h2 class="section-title-2 words-fly-in">
+        <span class="text-light">Stavovi o</span> 
+        <span class="text-bold">Nastavi</span>
       </h2>      
       <p class="text-rise">Raspodela studenata po polu i godinama studija na Metropolitanu u Nišu.</p>
     </div>
-    <div class="paneli">
-      <!--<div class="panel panel-appear">
-        <div class=panelPitanje>
+    <div class="panels-container">
+      <div class="info-panel panel-appear">
+        <div class="panel-question">
           <h2>Fakultet</h2>
         </div>
-        <div class="barovi">        
-          <div class="barDruga scale-10" data-max="25"><span class="bar-grow" style="width: calc(23 / 64 * 100%)" data-total="23/64"  >Informacionih Tehnnologija</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(13 / 64 * 100%)" data-total="13/64">Menadzment</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(24 / 64 * 100%)" data-total="24/64">Digitalnih Umetnosti</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(4 / 64 * 100%)" data-total="4/64">Za Strane Jezike</span></div>
-        </div>
-
-      </div>-->
-    
-      <div class="panel panel-appear">
-        <div class="panelPitanje">
-          <h2>Koliko sati dnevno učiš?</h2>
-        </div>
-        <div class="barovi">
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(36/64 * 100%)" data-total="36/64">1-2č</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">2-3č</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64">3-5č</span></div>      
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(6/64 * 100%)" data-total="6/64">Više od 5č</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(4/64 * 100%)" data-total="4/64">Manje od 1č</span></div>
+        <div class="panel-bars">        
+          <div class="panel-bar scale-10" data-max="25"><span class="bar-grow" style="width: calc(23 / 64 * 100%)" data-total="23/64"  >Informacionih Tehnnologija</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(13 / 64 * 100%)" data-total="13/64">Menadzment</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(24 / 64 * 100%)" data-total="24/64">Digitalnih Umetnosti</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(4 / 64 * 100%)" data-total="4/64">Zdravstvene</span></div>
         </div>
       </div>
   
-      <div class="panel panel-appear">
-        <div class=panelPitanje>
-          <h2>Najčešće učim</h2>
+      <div class="info-panel panel-appear">
+        <div class="panel-question">
+          <h2>Zadovoljstvo nastavom</h2>
         </div>
-        <div class="barovi">
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(29/64 * 100%)" data-total="29/64">Kod kuće</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">U biblioteci</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64" >U kafiću</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(9/64 * 100%)" data-total="9/64">Sa društvom</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Ostalo</span></div>
-        </div>
-      </div>
-
-      <div class="panel panel-appear">
-        <div class="panelPitanje">
-          <h2>Kako si zadovoljan nastavom?</h2>
-        </div>
-        <div class="barovi">
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(36/64 * 100%)" data-total="36/64">Zadovoljan</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Ponekad</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64">Uglavnom</span></div>      
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(6/64 * 100%)" data-total="6/64">Delimično</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(4/64 * 100%)" data-total="4/64">Nisam zadovoljan</span></div>
+        <div class="panel-bars">
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(27/64 * 100%)" data-total="27/64">Odličan</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(20/64 * 100%)" data-total="20/64">Dobar</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(13/64 * 100%)" data-total="13/64">Srednji</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(4/64 * 100%)" data-total="4/64">Nisam zadovoljan</span></div>
         </div>
       </div>
   
-      <div class="panel panel-appear">
-        <div class=panelPitanje>
+      <div class="info-panel panel-appear">
+        <div class="panel-question">
           <h2>Posećujem predavanja i vežbe</h2>
         </div>
-        <div class="barovi">
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(29/64 * 100%)" data-total="29/64">Redovno</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Često</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64" >Povremeno</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(9/64 * 100%)" data-total="9/64">Retko</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Nikad</span></div>
+        <div class="panel-bars">
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(29/64 * 100%)" data-total="29/64">Redovno</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Često</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64" >Povremeno</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(9/64 * 100%)" data-total="9/64">Retko</span></div>
+          <div class="panel-bar scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Nikad</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!--
-  <section class="treca">
-
-  </section>-->
-
-  <section class="cetvrta">
+  <section id="zivot" class="life-section">
   <h2 class="section-title fade-in">Studentski život</h2>
   <div class="timeline">
 
@@ -245,13 +234,13 @@
 </section>
 
 
-  <section class="poslednja">
-    <div class="poslednja-content">
-      <div class="poslednja-logo slide-in-left">
-        <img src="./img/metropolitan-logo.png" alt="Metropolitan logo">
+  <section id="zahvalnica" class="thank-you-section">
+    <div class="thank-you-content">
+      <div class="thank-you-logo slide-in-left">
+        <img src="./img/metropolitan-logo.png" alt="Metropolitan logo" loading="lazy">
       </div>
 
-      <div class="poslednja-naslov slide-in-right">
+      <div class="thank-you-header slide-in-right">
         <h3 class="text-rise">Drage koleginice i kolege,</h3>
         <h1 class="thank-title">Veliko hvala na izdvojenom vremenu <br>za popunjavanje ove ankete</h1>
         <p class="thank-text">
@@ -261,19 +250,19 @@
         </p>
       </div>
 
-      <div class="dugme fade-card">
-        <button class="btn btn-sajt" onclick="window.open('https://www.metropolitan.ac.rs', '_blank')">
+      <div class="button-container fade-card">
+        <button class="btn btn-website" onclick="window.open('https://www.metropolitan.ac.rs', '_blank')">
           Posetite stranicu Metropolitana
         </button>
       </div>
 
-      <div class="upis slide-in-right">
+      <div class="enrollment-info slide-in-right">
         <h3 class="text-rise">
           Ako ste zainteresovani da upišete fakultet, sada je pravo vreme, jer prijave su otvorene još:
         </h3>
-        <div class="tajmer" id="tajmer"></div>
-        <div class="upis-dugme fade-card">
-          <button class="btn btn-upis" onclick="window.open('https://www.metropolitan.ac.rs/upis-met/', '_blank')">
+        <div class="countdown-timer" id="countdownTimer"></div>
+        <div class="enrollment-button fade-card">
+          <button class="btn btn-enroll" onclick="window.open('https://www.metropolitan.ac.rs/upis-met/', '_blank')">
             Prijavite se
           </button>
         </div>
@@ -281,17 +270,17 @@
     </div>
   </section>
 
-  <footer class="futer">
-    <div class="futer-logo slide-in-left">
-      <img src="./img/metropolitan-logo.png" alt="Metropolitan logo">
+  <footer class="site-footer">
+    <div class="footer-logo slide-in-left">
+      <img src="./img/metropolitan-logo.png" alt="Metropolitan logo" loading="lazy">
     </div>
-    <div class="futer-linkovi slide-in-right">
+    <div class="footer-links slide-in-right">
       <a href="https://www.metropolitan.ac.rs" target="_blank">Zvanična stranica</a>
       <a href="https://www.metropolitan.ac.rs/o-univerzitetu/fakulteti/" target="_blank">Fakulteti</a>
       <a href="https://www.metropolitan.ac.rs/upis-met/" target="_blank">Upis</a>
       <a href="https://www.metropolitan.ac.rs/kontakt/" target="_blank">Kontakt</a>
     </div>
-    <p class="futer-copyright text-rise">
+    <p class="footer-copyright text-rise">
       © 2025 Anastasija Pavlović
     </p>
   </footer>
