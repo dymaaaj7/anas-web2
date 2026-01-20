@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -25,97 +25,172 @@
   </section>
 
   <section class="prva">
+    <div class="prva-bg"></div>
+    <div class="prva-overlay"></div>
+    
     <div class="sadrzajprva">
-      <div class="naslov1 title-animate">
-        <h2>Opšte informacije</h2>
-        <p>Raspodela studenata po polu i godinama studija na Metropolitanu u Nišu.</p>
+      <div class="section-header">
+        <h2 class="section-title title-animate">Opšte informacije</h2>
+        <p class="section-subtitle fade-in">Raspodela studenata po polu i godinama studija na Metropolitanu u Nišu</p>
       </div>
-      <div class="charts">
 
-        <div class="gender slide-in-left">
-          <div class="circle-chart">
-            <svg viewBox="0 0 36 36" class="circular-chart">
-
-              <path class="circle-bg"
-                d="M18 2.0845
-                   a 15.9155 15.9155 0 0 1 0 31.831
-                   a 15.9155 15.9155 0 0 1 0 -31.831"/>
-
-              <path class="circle male"
-                stroke-dasharray="45, 100"
-                d="M18 2.0845
-                   a 15.9155 15.9155 0 0 1 0 31.831
-                   a 15.9155 15.9155 0 0 1 0 -31.831"/>
-
-              <path class="circle female"
-                stroke-dasharray="55, 100"
-                d="M18 2.0845
-                   a 15.9155 15.9155 0 0 1 0 31.831
-                   a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <div class="stats-grid">
+        
+        <!-- Total Counter Card -->
+        <div class="stat-card main-counter fade-in-up">
+          <div class="counter-ring">
+            <svg viewBox="0 0 200 200" class="counter-svg">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+              <circle class="counter-progress" cx="100" cy="100" r="90" fill="none" stroke="url(#counterGradient)" stroke-width="8" 
+                      stroke-linecap="round" stroke-dasharray="565.48" stroke-dashoffset="565.48"/>
+              <defs>
+                <linearGradient id="counterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#FF8BA7"/>
+                  <stop offset="100%" style="stop-color:#FF6B9D"/>
+                </linearGradient>
+              </defs>
             </svg>
-            <div class="legend">
-              <span class="legend-item">
-                <span class="color-box male"></span> Muški 45%
-              </span>
-              <br>
-              <span class="legend-item">
-                <span class="color-box female"></span> Ženski 55%
-              </span>
+            <div class="counter-content">
+              <span class="counter-number" data-target="64">0</span>
+              <span class="counter-label">UKUPNO STUDENATA</span>
             </div>
           </div>
         </div>
-  
-        <div class="years slide-in-left">
-          <div class="yearsNaslov">
-            <h3>Godina studija</h3>
+
+        <!-- Gender Distribution -->
+        <div class="stat-card gender-card fade-in-up" style="transition-delay: 0.1s;">
+          <div class="card-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+              <path d="M12 12v8"/>
+              <path d="M8 16h8"/>
+            </svg>
           </div>
-
-          <div class="years-content">
-
-            <div class="years-labels">
-              <div>1. godina</div>
-              <div>2. godina</div>
-              <div>3. godina</div>
-              <div>4. godine</div>
-              <div>Apsolvent</div>
+          <h3>Raspodela po polu</h3>
+          <div class="gender-bars">
+            <div class="gender-bar">
+              <span class="gender-label">Ženski</span>
+              <div class="gender-track">
+                <div class="gender-fill female" data-percent="55"></div>
+                <span class="gender-percent">55%</span>
+              </div>
             </div>
-
-
-            <div class="years-bars">
-              <div class="grid-lines">
-                <div class="line"><span>0</span></div>
-                <div class="line"><span>5</span></div>
-                <div class="line"><span>10</span></div>
-                <div class="line"><span>15</span></div>
-                <div class="line"><span>20</span></div>
+            <div class="gender-bar">
+              <span class="gender-label">Muški</span>
+              <div class="gender-track">
+                <div class="gender-fill male" data-percent="45"></div>
+                <span class="gender-percent">45%</span>
               </div>
+            </div>
+          </div>
+          <div class="gender-total">
+            <span class="female-count">35</span>
+            <span class="male-count">29</span>
+          </div>
+        </div>
 
-              <div class="bar-container">
-                <div class="bar" style="width:40%">8</div>
+        <!-- Year of Study -->
+        <div class="stat-card years-card fade-in-up" style="transition-delay: 0.2s;">
+          <div class="card-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4"/>
+              <path d="M12 18v4"/>
+              <path d="M4.93 4.93l2.83 2.83"/>
+              <path d="M16.24 16.24l2.83 2.83"/>
+              <path d="M2 12h4"/>
+              <path d="M18 12h4"/>
+              <path d="M4.93 19.07l2.83-2.83"/>
+              <path d="M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3>Godina studija</h3>
+          <div class="year-list">
+            <div class="year-item">
+              <div class="year-info">
+                <span class="year-label">1. godina</span>
+                <span class="year-count">8</span>
               </div>
-
-              <div class="bar-container"> 
-                <div class="bar" style="width:60%">12</div>
+              <div class="year-bar">
+                <div class="year-progress" data-value="12.5"></div>
               </div>
-
-              <div class="bar-container">
-                <div class="bar" style="width:50%">10</div>
+            </div>
+            <div class="year-item">
+              <div class="year-info">
+                <span class="year-label">2. godina</span>
+                <span class="year-count">12</span>
               </div>
-
-              <div class="bar-container">
-                <div class="bar" style="width:80%">16</div>
+              <div class="year-bar">
+                <div class="year-progress" data-value="18.75"></div>
               </div>
+            </div>
+            <div class="year-item">
+              <div class="year-info">
+                <span class="year-label">3. godina</span>
+                <span class="year-count">10</span>
+              </div>
+              <div class="year-bar">
+                <div class="year-progress" data-value="15.625"></div>
+              </div>
+            </div>
+            <div class="year-item">
+              <div class="year-info">
+                <span class="year-label">4. godina</span>
+                <span class="year-count">16</span>
+              </div>
+              <div class="year-bar">
+                <div class="year-progress" data-value="25"></div>
+              </div>
+            </div>
+            <div class="year-item">
+              <div class="year-info">
+                <span class="year-label">Apsolvent</span>
+                <span class="year-count">18</span>
+              </div>
+              <div class="year-bar">
+                <div class="year-progress" data-value="28.125"></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="bar-container">
-                <div class="bar" style="width:90%">18</div>
+        <!-- Insight Card -->
+        <div class="stat-card insight-card fade-in-up" style="transition-delay: 0.3s;">
+          <div class="card-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <h3>Ključni uvidi</h3>
+          <div class="insight-list">
+            <div class="insight-item">
+              <div class="insight-icon">📊</div>
+              <div class="insight-text">
+                <span class="insight-label">Najviše</span>
+                <span class="insight-value">apsolvenata (28%)</span>
+              </div>
+            </div>
+            <div class="insight-item">
+              <div class="insight-icon">👩</div>
+              <div class="insight-text">
+                <span class="insight-label">Ženski</span>
+                <span class="insight-value"> predominiraju (55%)</span>
+              </div>
+            </div>
+            <div class="insight-item">
+              <div class="insight-icon">📈</div>
+              <div class="insight-text">
+                <span class="insight-label">Rast</span>
+                <span class="insight-value">od 1. do 4. godine</span>
               </div>
             </div>
           </div>
         </div>
 
       </div>
-      <div class="komentarPrva title-animate">
-        <p>Ukupan broj studenata koji su učestvovali u anketiranju je 64.</p>
+
+      <div class="section-footer fade-in-up" style="transition-delay: 0.4s;">
+        <p>Anketa je sprovedena na uzorku od <span class="highlight">64</span> studenata</p>
       </div>
     </div>
   </section>
@@ -129,55 +204,15 @@
       <p class="text-rise">Raspodela studenata po polu i godinama studija na Metropolitanu u Nišu.</p>
     </div>
     <div class="paneli">
-      <!--<div class="panel panel-appear">
+      <div class="panel panel-appear">
         <div class=panelPitanje>
-          <h2>Fakultet</h2>
+          <h2>Kvalitet nastave</h2>
         </div>
         <div class="barovi">        
-          <div class="barDruga scale-10" data-max="25"><span class="bar-grow" style="width: calc(23 / 64 * 100%)" data-total="23/64"  >Informacionih Tehnnologija</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(13 / 64 * 100%)" data-total="13/64">Menadzment</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(24 / 64 * 100%)" data-total="24/64">Digitalnih Umetnosti</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(4 / 64 * 100%)" data-total="4/64">Za Strane Jezike</span></div>
-        </div>
-
-      </div>-->
-    
-      <div class="panel panel-appear">
-        <div class="panelPitanje">
-          <h2>Koliko sati dnevno učiš?</h2>
-        </div>
-        <div class="barovi">
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(36/64 * 100%)" data-total="36/64">1-2č</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">2-3č</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64">3-5č</span></div>      
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(6/64 * 100%)" data-total="6/64">Više od 5č</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(4/64 * 100%)" data-total="4/64">Manje od 1č</span></div>
-        </div>
-      </div>
-  
-      <div class="panel panel-appear">
-        <div class=panelPitanje>
-          <h2>Najčešće učim</h2>
-        </div>
-        <div class="barovi">
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(29/64 * 100%)" data-total="29/64">Kod kuće</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">U biblioteci</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64" >U kafiću</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(9/64 * 100%)" data-total="9/64">Sa društvom</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Ostalo</span></div>
-        </div>
-      </div>
-
-      <div class="panel panel-appear">
-        <div class="panelPitanje">
-          <h2>Kako si zadovoljan nastavom?</h2>
-        </div>
-        <div class="barovi">
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(36/64 * 100%)" data-total="36/64">Zadovoljan</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Ponekad</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(10/64 * 100%)" data-total="10/64">Uglavnom</span></div>      
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(6/64 * 100%)" data-total="6/64">Delimično</span></div>
-          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(4/64 * 100%)" data-total="4/64">Nisam zadovoljan</span></div>
+          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(30/64 * 100%)" data-total="30/64"  >Odličan</span></div>
+          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(23/64 * 100%)" data-total="23/64">Dobar</span></div>
+          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(8/64 * 100%)" data-total="8/64">Srednji</span></div>
+          <div class="barDruga scale-10"><span class="bar-grow" style="width: calc(3/64 * 100%)" data-total="3/64">Nisam zadovoljan</span></div>
         </div>
       </div>
   
@@ -196,13 +231,8 @@
     </div>
   </section>
 
-  <!--
-  <section class="treca">
-
-  </section>-->
-
   <section class="cetvrta">
-  <h2 class="section-title fade-in">Studentski život</h2>
+  <h2 class="section-title-main fade-in">Studentski život</h2>
   <div class="timeline">
 
     <div class="timeline-item slide-in-left">
