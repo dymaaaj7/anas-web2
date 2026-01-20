@@ -1,61 +1,100 @@
-const cards = document.querySelectorAll('.memory-card');
+// Get all memory cards
+const memoryCards = document.querySelectorAll('.memory-card');
+const resetButton = document.getElementById('resetBtn');
 
+// Game state variables
 let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+let isBoardLocked = false;
+let firstCard = null;
+let secondCard = null;
 
+// Flip card function
 function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
+    // Prevent flipping if board is locked or same card clicked
+    if (isBoardLocked) return;
+    if (this === firstCard) return;
 
-  this.classList.add('flip');
+    // Add flip class to animate the card
+    this.classList.add('flip');
 
-  if (!hasFlippedCard) {
-    hasFlippedCard = true;
-    firstCard = this;
+    // If first card hasn't been flipped yet
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
 
-    return;
-  }
-
-  secondCard = this;
-  checkForMatch();
+    // Second card flipped
+    secondCard = this;
+    checkForMatch();
 }
 
+// Check if two cards match
 function checkForMatch() {
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-
-  isMatch ? disableCards() : unflipCards();
+    const isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+    isMatch ? disableMatchedCards() : unflipCards();
 }
 
-function disableCards() {
-  firstCard.removeEventListener('click', flipCard);
-  secondCard.removeEventListener('click', flipCard);
-
-  resetBoard();
+// Disable click events on matched cards
+function disableMatchedCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+    resetBoardState();
 }
 
+// Flip cards back if they don't match
 function unflipCards() {
-  lockBoard = true;
+    isBoardLocked = true;
 
-  setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
-
-    resetBoard();
-  }, 1500);
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+        resetBoardState();
+    }, 1500);
 }
 
-function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard, secondCard] = [null, null];
+// Reset board state for next turn
+function resetBoardState() {
+    [hasFlippedCard, isBoardLocked] = [false, false];
+    [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
-  cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 16);
-    card.style.order = randomPos;
-  });
-})();
+// Shuffle cards randomly
+function shuffleCards() {
+    memoryCards.forEach(card => {
+        const randomPosition = Math.floor(Math.random() * 16);
+        card.style.order = randomPosition;
+    });
+}
 
-console.log(cards.length);
-cards.forEach(card => card.addEventListener('click', flipCard));
+// Reset game - flip all cards back and shuffle
+function resetGame() {
+    memoryCards.forEach(card => {
+        card.classList.remove('flip');
+    });
+
+    // Wait for flip animation before shuffling
+    setTimeout(() => {
+        shuffleCards();
+        // Re-attach event listeners to all cards
+        memoryCards.forEach(card => {
+            card.removeEventListener('click', flipCard);
+            card.addEventListener('click', flipCard);
+        });
+    }, 500);
+}
+
+// Initialize game
+function initGame() {
+    shuffleCards();
+    memoryCards.forEach(card => card.addEventListener('click', flipCard));
+    console.log(`Game initialized with ${memoryCards.length} cards`);
+}
+
+// Add event listener to reset button
+if (resetButton) {
+    resetButton.addEventListener('click', resetGame);
+}
+
+// Start the game
+initGame();
